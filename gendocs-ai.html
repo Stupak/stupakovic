@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GenDocs AI Case Study | Viacheslav Stupak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --text-main: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-meta: #71717a;
+            --line: rgba(255, 255, 255, 0.08);
+            --line-highlight: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            background-image: radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.3), transparent 50%);
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 10vh 24px 15vh 24px;
+        }
+
+        .back-link {
+            color: var(--text-meta);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: inline-block;
+            margin-bottom: 6rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover { color: var(--text-main); }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: -0.04em;
+            margin: 0 0 1rem 0;
+        }
+
+        .case-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: 5rem;
+        }
+
+        .section-block {
+            margin-top: 5rem;
+            padding-top: 4rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 2rem;
+        }
+
+        .section-grid h2 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-meta);
+            margin: 0;
+            padding-top: 0.3rem;
+        }
+
+        .content-body p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin: 0 0 2rem 0;
+        }
+
+        .content-body ul {
+            margin: 0 0 2rem 0;
+            padding-left: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .content-body li { margin-bottom: 1rem; }
+        .content-body strong { color: #ffffff; font-weight: 400; }
+
+        .media-wrapper {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .media-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            min-height: 300px;
+            border: 1px dashed var(--line-highlight);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-meta);
+            font-family: monospace;
+            font-size: 0.85rem;
+            background: rgba(255,255,255,0.02);
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .image-placeholder span {
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        .image-caption {
+            font-size: 0.8rem;
+            color: var(--text-meta);
+            margin-top: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .outcome-focus {
+            margin-top: 2rem;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px dashed var(--line-highlight);
+            border-radius: 6px;
+        }
+
+        .outcome-focus p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .section-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .back-link { margin-bottom: 4rem; }
+            h1 { font-size: 2.4rem; }
+            .media-wrapper { padding: 1.5rem; margin: 3rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <a href="index.html" class="back-link">← Overview</a>
+
+        <header class="reveal">
+            <h1>GenDocs AI</h1>
+            <div class="case-subtitle">A comprehensive generative AI tool integrated into a large B2B ERP system to automate the creation of complex reports, diagrams, and documentation.</div>
+        </header>
+
+        <div class="media-wrapper reveal">
+            <div class="image-placeholder">
+                <span>[ GenDocs AI Dashboard ]</span>
+                Add screenshot to assets/images/gendocs-ai/
+            </div>
+            <div class="image-caption">Generative AI workspace embedded in enterprise ERP workflows.</div>
+        </div>
+
+        <div class="section-block section-grid reveal">
+            <h2>The Challenge</h2>
+            <div class="content-body">
+                <p>I inherited fragmented, inconsistent layouts from a previous design team while multiple development teams were simultaneously building features in silos.</p>
+                <p>The product surface was expanding faster than the design system could support, creating visual drift and conflicting interaction patterns across modules.</p>
+            </div>
+        </div>
+
+        <div class="section-block section-grid reveal">
+            <h2>The Process</h2>
+            <div class="content-body">
+                <ul>
+                    <li><strong>UI/UX Audit:</strong> Initiated a comprehensive audit of all implemented features to map inconsistencies and prioritize remediation.</li>
+                    <li><strong>Cross-functional Syncs:</strong> Established weekly design alignment sessions across stakeholders to reduce duplicate work and conflicting direction.</li>
+                    <li><strong>Developer Integration:</strong> Integrated design tracking directly into ADO boards to bridge the gap between design intent and engineering delivery.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="media-wrapper reveal">
+            <div class="image-placeholder">
+                <span>[ Design System & Flows ]</span>
+                Add IA or component screenshots to assets/images/gendocs-ai/
+            </div>
+            <div class="image-caption">Unified patterns applied across report generation, diagrams, and documentation modules.</div>
+        </div>
+
+        <div class="section-block section-grid reveal">
+            <h2>The Outcome</h2>
+            <div class="content-body">
+                <p>The initiative prevented project collapse by unifying the design language across a rapidly growing AI feature set.</p>
+                <div class="outcome-focus">
+                    <p>Post-generation user feedback confirmed a &gt;20% improvement in the overall quality and clarity of system outputs.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

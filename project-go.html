@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectGO Case Study | Viacheslav Stupak</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --text-main: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-meta: #71717a;
+            --line: rgba(255, 255, 255, 0.08);
+            --line-highlight: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            background-image: radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.3), transparent 50%);
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 10vh 24px 15vh 24px;
+        }
+
+        .back-link {
+            color: var(--text-meta);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: inline-block;
+            margin-bottom: 6rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-main);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: -0.04em;
+            margin: 0 0 1rem 0;
+        }
+
+        .case-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: 5rem;
+        }
+
+        /* Grid layout for deep content */
+        .section-block {
+            margin-top: 5rem;
+            padding-top: 4rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 2rem;
+        }
+
+        .section-grid h2 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-meta);
+            margin: 0;
+            padding-top: 0.3rem;
+        }
+
+        .content-body p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin: 0 0 2rem 0;
+        }
+
+        .content-body ul {
+            margin: 0 0 2rem 0;
+            padding-left: 1.2rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .content-body li {
+            margin-bottom: 1rem;
+        }
+
+        .content-body strong {
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        /* MEDIA WRAPPER & CSS FILTERS */
+        .media-wrapper {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: border-color 0.4s ease, background-color 0.4s ease;
+            text-align: center;
+        }
+
+        .media-wrapper:hover {
+            border-color: var(--line-highlight);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .media-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Filter for dark UI screenshots (ProjectGO) */
+        .img-dark-ui {
+            opacity: 0.85;
+            filter: grayscale(20%) contrast(1.05);
+            mix-blend-mode: lighten;
+        }
+
+        .media-wrapper:hover .img-dark-ui {
+            opacity: 1;
+            filter: grayscale(0%) contrast(1);
+            mix-blend-mode: normal;
+        }
+
+        /* Placeholder styling for missing images */
+        .image-placeholder {
+            width: 100%;
+            min-height: 300px;
+            border: 1px dashed var(--line-highlight);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-meta);
+            font-family: monospace;
+            font-size: 0.85rem;
+            background: rgba(255,255,255,0.02);
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        .image-placeholder span {
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        .image-caption {
+            font-size: 0.8rem;
+            color: var(--text-meta);
+            margin-top: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Outcome block */
+        .outcome-focus {
+            margin-top: 2rem;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px dashed var(--line-highlight);
+            border-radius: 6px;
+        }
+
+        .outcome-focus p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .section-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .back-link { margin-bottom: 4rem; }
+            h1 { font-size: 2.4rem; }
+            .media-wrapper { padding: 1.5rem; margin: 3rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <a href="index.html" class="back-link">← Overview</a>
+
+        <header class="reveal">
+            <h1>ProjectGO</h1>
+            <div class="case-subtitle">An advanced presentation tool for showcasing complex enterprise methodologies, designed and delivered under extreme time pressure.</div>
+        </header>
+
+        <!-- INTRO SCREENSHOT -->
+        <div class="media-wrapper reveal">
+            <!-- Replace placeholder with: <img src="assets/images/project-go/dashboard.png" alt="AscendGO Dashboard" class="img-dark-ui"> -->
+            <div class="image-placeholder">
+                <span>[ AscendGO Dashboard ]</span>
+                Add screenshots to assets/images/project-go/
+            </div>
+            <div class="image-caption">Platform entry point combining visual storytelling with usability.</div>
+        </div>
+
+        <!-- CONTEXT -->
+        <div class="section-block section-grid reveal">
+            <h2>The Challenge</h2>
+            <div class="content-body">
+                <p>The project was initiated with the goal of presenting a working product at a major business conference. The client had only a vague concept and needed a platform ready for a live demo from scratch in under a month.</p>
+                <p>This created extreme time pressure. With three cross-functional groups involved (UI/UX, Graphic & Motion, and Development), the requirements shifted constantly, and actual content was provided only during the final days of development.</p>
+            </div>
+        </div>
+
+        <!-- IA SChema -->
+        <div class="media-wrapper reveal">
+            <div class="image-placeholder">
+                <span>[ Information Architecture ]</span>
+                Add IA diagram to assets/images/project-go/
+            </div>
+            <div class="image-caption">Journey-based section hierarchy designed for dynamic scenarios.</div>
+        </div>
+
+        <!-- PROCESS -->
+        <div class="section-block section-grid reveal">
+            <h2>The Process</h2>
+            <div class="content-body">
+                <ul>
+                    <li><strong>Requirement Framing:</strong> Translated vague client ideas into solid design hypotheses, guiding the team to validate them through structured, short design cycles.</li>
+                    <li><strong>Cross-team Synchronization:</strong> Initiated regular alignment sessions across all involved teams. Emphasized cross-visibility so each designer knew what others were working on, reducing overlap.</li>
+                    <li><strong>Feedback Mediation:</strong> Served as the primary point of contact between business stakeholders and design teams to buffer conflicting inputs, reframe emotional feedback, and keep the team focused.</li>
+                    <li><strong>Capacity Planning:</strong> Redistributed workloads dynamically to match deadlines, successfully avoiding designer burnout.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ENTITIES & ROADMAP SCREENSHOTS -->
+        <div class="media-wrapper reveal">
+            <div class="image-placeholder">
+                <span>[ Entities Mapping & Scenarios ]</span>
+                Add scenario screenshots to assets/images/project-go/
+            </div>
+            <div class="image-caption">Rapid iterations on UI to adapt to shifting business requirements.</div>
+        </div>
+
+        <div class="media-wrapper reveal">
+            <div class="image-placeholder">
+                <span>[ Roadmap Screen ]</span>
+                Add roadmap screenshot to assets/images/project-go/
+            </div>
+            <div class="image-caption">The final complex methodology layout achieved after dozens of testing iterations.</div>
+        </div>
+
+        <!-- OUTCOME -->
+        <div class="section-block section-grid reveal">
+            <h2>The Outcome</h2>
+            <div class="content-body">
+                <p>Despite heavy constraints, the required UX/UI system architecture was delivered exactly on time for the major event.</p>
+                <div class="outcome-focus">
+                    <p>The system successfully launched at the conference for a live demonstration. While the product demo was a fast-paced initiative, the leadership practices and operational resilience we established left a lasting impact on how cross-functional teams collaborate.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+    </script>
+
+</body>
+</html>

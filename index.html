@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viacheslav Stupak | UX Architect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000; /* Абсолютно чорний, щоб безшовно зливатися з картинкою */
+            --text-main: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-meta: #8b8b94;
+            --line: rgba(255, 255, 255, 0.08);
+            --line-highlight: rgba(255, 255, 255, 0.2);
+            --card-bg: rgba(255, 255, 255, 0.01);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .hero-image-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120vh; /* Охоплює перший екран + трохи запасу для скролу */
+            z-index: -1;
+            pointer-events: none;
+            background-image: url('hero-bg.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+
+        .hero-image-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent 0%,
+                    transparent 48%,
+                    rgba(0, 0, 0, 0.08) 55%,
+                    rgba(0, 0, 0, 0.22) 62%,
+                    rgba(0, 0, 0, 0.4) 70%,
+                    rgba(0, 0, 0, 0.62) 78%,
+                    rgba(0, 0, 0, 0.8) 86%,
+                    rgba(0, 0, 0, 0.93) 93%,
+                    var(--bg) 100%
+                ),
+                linear-gradient(
+                    to right,
+                    var(--bg) 0%,
+                    rgba(0, 0, 0, 0.35) 16%,
+                    rgba(0, 0, 0, 0.08) 30%,
+                    transparent 46%,
+                    transparent 54%,
+                    rgba(0, 0, 0, 0.08) 70%,
+                    rgba(0, 0, 0, 0.35) 84%,
+                    var(--bg) 100%
+                );
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 25vh 24px 15vh 24px;
+        }
+
+        header {
+            margin-bottom: 10rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: -0.04em;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .role {
+            font-size: 1.1rem;
+            color: var(--text-meta);
+            display: block;
+            margin-bottom: 4rem;
+        }
+
+        .intro {
+            font-size: 1.35rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .intro strong {
+            font-weight: 400;
+            color: var(--text-main);
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-meta);
+            margin-top: 10rem;
+            margin-bottom: 4rem;
+            padding-bottom: 1.5rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--line);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        h2.active::after {
+            transform: scaleX(1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .exp-item {
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 2.5rem;
+        }
+
+        .exp-item:last-child {
+            border-bottom: none;
+        }
+
+        .exp-item h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin: 0 0 0.75rem 0;
+            color: #ffffff;
+        }
+
+        .exp-item p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.4s ease, transform 0.4s ease, background-color 0.4s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--line-highlight);
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .project-card .meta {
+            font-size: 0.95rem;
+            color: var(--text-meta);
+            font-family: 'Inter', monospace;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin: 0 0 1.5rem 0;
+        }
+
+        .view-case {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 400;
+        }
+
+        .view-case span {
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .view-case span {
+            transform: translateX(4px);
+        }
+
+        .contact-wrapper {
+            margin-top: 14rem;
+            border-top: 1px solid var(--line);
+            padding-top: 6rem;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(34, 197, 94, 0.03);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            padding: 0.6rem 1.4rem;
+            border-radius: 100px;
+            margin-bottom: 3rem;
+            animation: pulse-border 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.25); }
+            60% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        .status-text {
+            font-size: 0.95rem;
+            color: #22c55e;
+            font-weight: 400;
+        }
+
+        .contact-cta {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: 5rem;
+            max-width: 560px;
+            line-height: 1.5;
+        }
+
+        .contact-cta a {
+            color: var(--text-main);
+            font-weight: 400;
+            text-decoration: none;
+            border-bottom: 1px solid var(--line-highlight);
+            padding-bottom: 2px;
+            transition: border-color 0.2s ease;
+        }
+
+        .contact-cta a:hover {
+            border-color: var(--text-main);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-meta);
+            text-decoration: none;
+            font-size: 1rem;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--line-highlight);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .footer-link:hover {
+            color: var(--text-main);
+        }
+
+        a:focus-visible, .project-card:focus-visible {
+            outline: 2px solid #22c55e;
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        .project-card:focus-visible {
+            border-color: var(--line-highlight);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s cubic-bezier(0.215, 0.610, 0.355, 1), 
+                        transform 1.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 12vh 20px; }
+            h1 { font-size: 2.2rem; }
+            .intro { font-size: 1.2rem; }
+            .project-card { padding: 2rem; }
+            .contact-wrapper { margin-top: 8rem; padding-top: 4rem; }
+            .footer-links { gap: 2rem; }
+            .hero-image-bg { height: 100vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-image-bg"></div>
+
+    <main class="container">
+        
+        <header class="reveal">
+            <h1>Viacheslav Stupak</h1>
+            <span class="role">Senior UX Architect</span>
+            <div class="intro">
+                I don't just draw interfaces. I untangle <strong>complex B2B, SaaS, and Enterprise systems</strong>. With over 10 years of experience, I focus on system architecture, reducing onboarding time, and delivering developer-ready solutions.
+            </div>
+        </header>
+
+        <section>
+            <h2 class="reveal">Expertise</h2>
+            <div class="grid reveal delay-1">
+                <div class="exp-item">
+                    <h3>UX Audit & Consulting</h3>
+                    <p>Identifying critical drop-offs and accessibility flaws in your platform. Delivering actionable roadmaps to decrease support requests and improve user retention.</p>
+                </div>
+                <div class="exp-item">
+                    <h3>End-to-End Product Design</h3>
+                    <p>From stakeholder discovery and business requirements to user flows and developer handoffs. Focused on logic and business metrics, not just aesthetics.</p>
+                </div>
+                <div class="exp-item">
+                    <h3>Design Systems & UI Architecture</h3>
+                    <p>Building scalable, clean UI components for legacy platforms to ensure continuous alignment between design systems and engineering teams.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="reveal">Selected Case Studies</h2>
+
+            <a href="project-go.html" class="project-card reveal delay-1">
+                <div class="project-header">
+                    <h3>ProjectGO</h3>
+                    <span class="meta">Methodology Tool</span>
+                </div>
+                <p>An advanced presentation tool for showcasing enterprise methodologies, designed and delivered from scratch under extreme time constraints.</p>
+                <div class="view-case">Read Case Study <span>→</span></div>
+            </a>
+
+            <a href="gendocs-ai.html" class="project-card reveal delay-1">
+                <div class="project-header">
+                    <h3>GenDocs AI</h3>
+                    <span class="meta">ERP Automation</span>
+                </div>
+                <p>A comprehensive generative AI tool integrated into a large B2B system to automate the creation of complex reports, diagrams, and documentation.</p>
+                <div class="view-case">Read Case Study <span>→</span></div>
+            </a>
+
+            <a href="intelligent-testing.html" class="project-card reveal delay-1">
+                <div class="project-header">
+                    <h3>Intelligent Testing</h3>
+                    <span class="meta">AI SaaS</span>
+                </div>
+                <p>An AI-powered tool that allows enterprise teams to create, manage, and execute user story test cases and scenarios efficiently.</p>
+                <div class="view-case">Read Case Study <span>→</span></div>
+            </a>
+        </section>
+
+        <section class="contact-wrapper reveal">
+            
+            <div class="status-badge">
+                <div class="status-text">Available for work</div>
+            </div>
+
+            <div class="contact-cta">
+                Have a complex product that needs a structured UX approach? Let’s talk. Drop me a line at <a href="mailto:vyacheslav.stupak@gmail.com">vyacheslav.stupak@gmail.com</a>
+            </div>
+
+            <div class="footer-links">
+                <a href="https://linkedin.com/" target="_blank" class="footer-link">LinkedIn</a>
+                <a href="assets/cv/cv_stupak_2026.pdf" target="_blank" class="footer-link">Resume (PDF)</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+    </script>
+</body>
+</html>
