@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
     <title>Viacheslav Stupak | UX Architect</title>
     <link rel="icon" type="image/svg+xml" href="icon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,17 +36,16 @@
         .container {
             max-width: 720px;
             margin: 0 auto;
-            /* Removed the 25vh top padding so the header can start at the very top */
             padding: 0 24px 15vh 24px; 
         }
 
         header {
             min-height: 100vh;
-            min-height: 100svh; /* Modern fix for mobile browser address bars */
+            min-height: 100svh;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Perfect vertical centering */
-            margin-bottom: 2rem; /* Reduced because the 100vh already creates natural spacing */
+            justify-content: center;
+            margin-bottom: 2rem;
         }
 
         h1 {
@@ -117,7 +117,6 @@
             border-bottom: none;
         }
 
-        /* New wrapper to align icon and title */
         .exp-header {
             display: flex;
             align-items: center;
@@ -131,7 +130,7 @@
         }
 
         .exp-item:hover .expertise-icon {
-            color: var(--text-main); /* Icon lights up on hover */
+            color: var(--text-main);
         }
 
         .exp-item h3 {
@@ -149,7 +148,7 @@
         }
 
         .project-card {
-            background-color: var(--card-bg);
+            background-color: rgba(255, 255, 255, 0.01);
             border: 1px solid var(--line);
             border-radius: 8px;
             padding: 2.5rem;
@@ -157,16 +156,17 @@
             display: block;
             text-decoration: none;
             color: inherit;
-            /* Updated for a buttery smooth Apple-like transition */
-            transition: border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                        background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(0);
+            will-change: transform, background-color, border-color;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                        background-color 0.4s ease,
+                        border-color 0.4s ease;
         }
 
         .project-card:hover {
             border-color: var(--line-highlight);
             background-color: rgba(255, 255, 255, 0.05);
-            transform: translateY(-2px);
+            transform: translateY(-6px);
         }
 
         .project-header {
@@ -358,7 +358,7 @@
         }
 
         @media (max-width: 600px) {
-            .container { padding: 0 20px 15vh 20px; } /* Removed the 12vh top padding */
+            .container { padding: 0 20px 15vh 20px; }
             h1 { font-size: 2.2rem; }
             .intro { font-size: 1.2rem; }
             .project-card { padding: 2rem; }
@@ -473,6 +473,7 @@
             </div>
 
         </section>
+
         <footer class="site-footer reveal">
             <p>© 2026 Viacheslav Stupak. All Rights Reserved.</p>
         </footer>
