@@ -157,7 +157,10 @@
             display: block;
             text-decoration: none;
             color: inherit;
-            transition: border-color 0.4s ease, transform 0.4s ease, background-color 0.4s ease;
+            /* Updated for a buttery smooth Apple-like transition */
+            transition: border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                        background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .project-card:hover {
@@ -203,7 +206,7 @@
         }
 
         .view-case span {
-            transition: transform 0.3s ease;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .project-card:hover .view-case span {
