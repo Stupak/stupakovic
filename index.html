@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#0d1015">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Viacheslav Stupak | UX Architect</title>
     <link rel="icon" type="image/svg+xml" href="icon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +23,10 @@
             --card-bg: rgba(255, 255, 255, 0.01);
         }
 
+        html {
+            background-color: var(--bg);
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg);
@@ -33,6 +38,7 @@
             -moz-osx-font-smoothing: grayscale;
             background-image: radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.3), transparent 50%);
             background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
         .container {
@@ -385,7 +391,6 @@
             .project-card { padding: 2rem; }
             .contact-wrapper { margin-top: 8rem; padding-top: 4rem; }
             .footer-links { gap: 2rem; }
-            .hero-image-bg { height: 100vh; height: 100svh; }
         }
     </style>
 </head>
@@ -484,7 +489,7 @@
             </div>
 
             <div class="contact-cta">
-                Have a complex product that needs a structured UX approach? Let’s talk. Drop me a line at <a href="mailto:stupakovic@gmail.com">stupakovic.com</a>
+                Have a complex product that needs a structured UX approach? Let’s talk. Drop me a line at <a href="mailto:stupakovic@gmail.com">stupakovic@gmail.com</a>
             </div>
 
             <div class="footer-links">
