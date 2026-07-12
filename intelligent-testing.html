@@ -121,15 +121,14 @@
         }
 
         .media-wrapper img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
+            object-fit: contain;
             display: block;
-            flex-shrink: 0; /* Ось цей рядок забороняє браузеру сплющувати картинку */
             border-radius: 4px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Filter for dark UI screenshots (ProjectGO) */
         .img-dark-ui {
             opacity: 0.85;
             filter: grayscale(20%) contrast(1.05);
@@ -142,7 +141,6 @@
             mix-blend-mode: normal;
         }
 
-        /* Placeholder styling for missing images */
         .image-placeholder {
             width: 100%;
             min-height: 300px;

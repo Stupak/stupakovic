@@ -115,10 +115,10 @@
         }
 
         .media-wrapper img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
+            object-fit: contain;
             display: block;
-            flex-shrink: 0; /* Ось цей рядок забороняє браузеру сплющувати картинку */
             border-radius: 4px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
@@ -207,7 +207,7 @@
             <h2>The Challenge</h2>
             <div class="content-body">
                 <p>I inherited fragmented, inconsistent layouts from a previous design team while multiple development teams were simultaneously building features in silos.</p>
-                <p>The product surface was expanding faster than the design system could support, creating visual drift and conflicting interaction patterns across modules.</p>
+                <p>The product surface was expanding faster than the design system support could keep up with, creating visual drift and conflicting interaction patterns across modules.</p>
             </div>
         </div>
 

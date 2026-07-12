@@ -64,7 +64,6 @@
             margin-bottom: 5rem;
         }
 
-        /* Grid layout for deep content */
         .section-block {
             margin-top: 5rem;
             padding-top: 4rem;
@@ -109,7 +108,6 @@
             font-weight: 400;
         }
 
-        /* MEDIA WRAPPER & CSS FILTERS */
         .media-wrapper {
             background: rgba(255, 255, 255, 0.01);
             border: 1px solid var(--line);
@@ -131,15 +129,14 @@
         }
 
         .media-wrapper img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
+            object-fit: contain;
             display: block;
-            flex-shrink: 0; /* Ось цей рядок забороняє браузеру сплющувати картинку */
             border-radius: 4px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* Filter for dark UI screenshots (ProjectGO) */
         .img-dark-ui {
             opacity: 0.85;
             filter: grayscale(20%) contrast(1.05);
@@ -152,7 +149,6 @@
             mix-blend-mode: normal;
         }
 
-        /* Placeholder styling for missing images */
         .image-placeholder {
             width: 100%;
             min-height: 300px;
@@ -185,7 +181,6 @@
             letter-spacing: 0.05em;
         }
 
-        /* Outcome block */
         .outcome-focus {
             margin-top: 2rem;
             padding: 2.5rem;
@@ -201,7 +196,6 @@
             line-height: 1.6;
         }
 
-        /* Scroll Animation */
         .reveal {
             opacity: 0;
             transform: translateY(15px);
@@ -232,15 +226,12 @@
             <div class="case-subtitle">An advanced presentation tool for showcasing complex enterprise methodologies, designed and delivered under extreme time pressure.</div>
         </header>
 
-        <!-- INTRO SCREENSHOT -->
         <div class="media-wrapper reveal">
-            <!-- Replace placeholder with: <img src="assets/images/project-go/dashboard.png" alt="AscendGO Dashboard" class="img-dark-ui"> -->
             <img src="assets/images/project-go/go_home.png" class="img-dark-ui" alt="ProjectGO landing page">
             
             <div class="image-caption">Platform entry point combining visual storytelling with usability.</div>
         </div>
 
-        <!-- CONTEXT -->
         <div class="section-block section-grid reveal">
             <h2>The Challenge</h2>
             <div class="content-body">
@@ -249,13 +240,11 @@
             </div>
         </div>
 
-        <!-- IA SChema -->
         <div class="media-wrapper reveal">
             <img src="assets/images/project-go/go_ia.png" class="img-dark-ui" alt="ProjectGO information architecture">
             <div class="image-caption">Journey-based section hierarchy designed for dynamic scenarios.</div>
         </div>
 
-        <!-- PROCESS -->
         <div class="section-block section-grid reveal">
             <h2>The Process</h2>
             <div class="content-body">
@@ -268,7 +257,6 @@
             </div>
         </div>
 
-        <!-- ENTITIES & ROADMAP SCREENSHOTS -->
         <div class="media-wrapper reveal">
             <img src="assets/images/project-go/go_mapping.png" class="img-dark-ui" alt="ProjectGO scenarios">
             <div class="image-caption">Rapid iterations on UI to adapt to shifting business requirements.</div>
@@ -279,7 +267,6 @@
             <div class="image-caption">The final complex methodology roadmap screen achieved after dozens of testing iterations.</div>
         </div>
 
-        <!-- OUTCOME -->
         <div class="section-block section-grid reveal">
             <h2>The Outcome</h2>
             <div class="content-body">
