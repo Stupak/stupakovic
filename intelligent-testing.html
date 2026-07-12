@@ -111,9 +111,38 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            transition: border-color 0.4s ease, background-color 0.4s ease;
             text-align: center;
         }
 
+        .media-wrapper:hover {
+            border-color: var(--line-highlight);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .media-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            flex-shrink: 0; /* Ось цей рядок забороняє браузеру сплющувати картинку */
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Filter for dark UI screenshots (ProjectGO) */
+        .img-dark-ui {
+            opacity: 0.85;
+            filter: grayscale(20%) contrast(1.05);
+            mix-blend-mode: lighten;
+        }
+
+        .media-wrapper:hover .img-dark-ui {
+            opacity: 1;
+            filter: grayscale(0%) contrast(1);
+            mix-blend-mode: normal;
+        }
+
+        /* Placeholder styling for missing images */
         .image-placeholder {
             width: 100%;
             min-height: 300px;
@@ -189,10 +218,8 @@
         </header>
 
         <div class="media-wrapper reveal">
-            <div class="image-placeholder">
-                <span>[ Intelligent Testing Workspace ]</span>
-                Add screenshot to assets/images/intelligent-testing/
-            </div>
+            <img src="assets/images/intelligent-testing/agent.png" class="img-dark-ui" alt="ProjectGO roadmap screen">
+            
             <div class="image-caption">AI-assisted test case creation and scenario management for enterprise practitioners.</div>
         </div>
 
@@ -216,10 +243,8 @@
         </div>
 
         <div class="media-wrapper reveal">
-            <div class="image-placeholder">
-                <span>[ Sidebar Architecture ]</span>
-                Add UI screenshots to assets/images/intelligent-testing/
-            </div>
+            <img src="assets/images/intelligent-testing/modals.png" class="img-dark-ui" alt="ProjectGO roadmap screen">
+            
             <div class="image-caption">Unified sidebar pattern replacing fragmented modal flows.</div>
         </div>
 

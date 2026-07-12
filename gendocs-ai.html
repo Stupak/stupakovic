@@ -115,8 +115,10 @@
         }
 
         .media-wrapper img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
+            display: block;
+            flex-shrink: 0; /* Ось цей рядок забороняє браузеру сплющувати картинку */
             border-radius: 4px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
