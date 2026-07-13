@@ -32,13 +32,19 @@
             padding: 0;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+
+            /* Combined backgrounds: Top blue glow & Bottom green glow */
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.55), transparent 70%),
+                radial-gradient(circle at 50% 100%, rgba(34, 197, 94, 0.15), transparent 30%);
+            background-repeat: no-repeat;
         }
 
         .container {
             max-width: 720px;
             margin: 0 auto;
-            padding: 0 24px 15vh 24px; 
-        }
+            padding: 0 24px 4vh 24px; /* Reduced from 15vh to bring everything closer to the edge */
+}
 
         header {
             min-height: 100vh;
@@ -238,7 +244,7 @@
             align-items: center;
             background: rgba(34, 197, 94, 0.03);
             border: 1px solid rgba(34, 197, 94, 0.4);
-            padding: 0.6rem 1.4rem;
+            padding: 0.4rem 1rem;
             border-radius: 100px;
             margin-bottom: 3rem;
             animation: pulse-border 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -449,8 +455,8 @@
 
             <a href="project-go.html" class="project-card reveal delay-1">
                 <div class="project-header">
-                    <h3>ProjectGO</h3>
-                    <span class="meta">Methodology Tool</span>
+                    <h3>Enterprise Consulting Project</h3>
+                    <span class="meta">NDA</span>
                 </div>
                 <p>An advanced presentation tool for showcasing enterprise methodologies, designed and delivered from scratch under extreme time constraints.</p>
                 <div class="view-case">View Case Study <span>→</span></div>
@@ -458,8 +464,8 @@
 
             <a href="gendocs-ai.html" class="project-card reveal delay-1">
                 <div class="project-header">
-                    <h3>GenDocs AI</h3>
-                    <span class="meta">ERP Automation</span>
+                    <h3>Big Four Company Project</h3>
+                    <span class="meta">NDA</span>
                 </div>
                 <p>A comprehensive generative AI tool integrated into a large B2B system to automate the creation of complex reports, diagrams, and documentation.</p>
                 <div class="view-case">View Case Study <span>→</span></div>
@@ -467,8 +473,8 @@
 
             <a href="intelligent-testing.html" class="project-card reveal delay-1">
                 <div class="project-header">
-                    <h3>Intelligent Testing</h3>
-                    <span class="meta">AI SaaS</span>
+                    <h3>AI SaaS Project</h3>
+                    <span class="meta">NDA</span>
                 </div>
                 <p>An AI-powered tool that allows enterprise teams to create, manage, and execute user story test cases and scenarios efficiently.</p>
                 <div class="view-case">View Case Study <span>→</span></div>
