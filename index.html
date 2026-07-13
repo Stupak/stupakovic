@@ -205,9 +205,10 @@
         .project-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start; /* Aligns the tag to the top/first line of the title if it wraps */
+            gap: 1rem; /* Creates an absolute minimum safe distance between title and tag */
             margin-bottom: 1rem;
-        }
+}
 
         .project-card h3 {
             font-size: 1.4rem;
@@ -225,7 +226,9 @@
             border-radius: 100px;
             font-weight: 400;
             letter-spacing: 0.02em;
-        }
+            flex-shrink: 0; /* Crucial: Prevents the tag from shrinking or collapsing when text gets long */
+            margin-top: 0.3rem; /* Nudges the pill down slightly to align beautifully with the cap-height of the text */
+}
 
         .project-card p {
             font-size: 1rem;
