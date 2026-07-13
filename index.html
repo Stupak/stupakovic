@@ -41,7 +41,7 @@
         }
 
         .container {
-            max-width: 720px;
+            max-width: 760px; /* Increased from 720px for perfect consistency with case studies */
             margin: 0 auto;
             padding: 0 24px 4vh 24px;
         }
@@ -110,28 +110,34 @@
 
         .grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
         .exp-item {
-            border-bottom: 1px solid var(--line);
-            padding-bottom: 2.5rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: border-color 0.4s ease, background-color 0.4s ease;
         }
 
-        .exp-item:last-child {
-            border-bottom: none;
+        .exp-item:hover {
+            border-color: var(--line-highlight);
+            background-color: rgba(255, 255, 255, 0.03);
         }
 
         .exp-header {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 0.85rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .expertise-icon {
             color: var(--text-meta);
+            flex-shrink: 0;
+            margin-top: 0.15rem;
         }
 
         .exp-item h3 {
@@ -162,7 +168,6 @@
             border: 1px solid var(--line);
             padding: 0.4rem 1rem;
             border-radius: 100px;
-            transition: color 0.3s ease, border-color 0.3s ease;
             cursor: default;
         }
 
@@ -340,7 +345,7 @@
         }
 
         .site-footer {
-            margin-top: 6rem; /* Tightened from 8rem */
+            margin-top: 6rem;
             padding-top: 2rem;
             border-top: 1px solid var(--line);
             font-size: 0.85rem;
@@ -405,6 +410,8 @@
             .container { padding: 0 20px 4vh 20px; }
             h1 { font-size: 2.2rem; }
             .intro { font-size: 1.2rem; }
+            .grid { grid-template-columns: 1fr; gap: 1.25rem; }
+            .exp-item { padding: 1.5rem; }
             .project-card { padding: 2rem; }
             .contact-wrapper { margin-top: 8rem; padding-top: 4rem; }
             .footer-links { gap: 2rem; }
@@ -426,10 +433,11 @@
         <section>
             <h2 class="reveal">About Me</h2>
             <div class="intro reveal delay-1" style="font-size: 1.1rem;">
-                <p>I make the complex products feel intuitive and reduce friction for the end-user, without losing sight of the business goals behind it.</p>
-                <p>I've come to believe good design in enterprise software isn't about aesthetics. It's about how systems scale and adapt.</p>
-                <p>My specialty is the full design arc — from discovery and research to developer-ready handoffs and design QA. I'm comfortable leading that process end-to-end, or being the one who executes it.</p>
-                <p>Minimalist by practice. Stoic by habit.</p>
+                <p>I make the complex feel intuitive and reduce friction for the end-user — without losing sight of the business goals behind it.</p>
+                
+                <p>In enterprise software, good design isn't just about aesthetics. It's about how systems scale and adapt.</p>
+                
+                <p>I am a minimalist by practice and a stoic by habit.</p>
             </div>
             
             <div class="domain-tags reveal delay-1">
@@ -438,8 +446,8 @@
                 <span class="domain-tag">Consulting</span>
                 <span class="domain-tag">EdTech</span>
                 <span class="domain-tag">Healthcare</span>
-                <span class="domain-tag">GovTech</span>
                 <span class="domain-tag">Retail</span>
+                <span class="domain-tag">Media</span>
             </div>
         </section>
 
@@ -480,9 +488,22 @@
                             <path d="M12 12L2.5 7"/>
                             <path d="M12 12l9.5-5"/>
                         </svg>
-                        <h3>Design Systems & UI Architecture</h3>
+                        <h3>Design Systems & IA</h3>
                     </div>
                     <p>Building scalable, clean UI components for legacy platforms to ensure continuous alignment between design systems and engineering teams.</p>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="expertise-icon">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        <h3>Leadership and Mentorship</h3>
+                    </div>
+                    <p>Running design reviews and critique processes, setting quality bars, and mentoring designers — so teams ship better work without slowing down.</p>
                 </div>
 
             </div>
