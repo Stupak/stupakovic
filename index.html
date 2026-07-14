@@ -575,7 +575,7 @@
         </section>
 
         <footer class="site-footer reveal">
-            <p>© 2026 Viacheslav Stupak. All Rights Reserved.</p>
+            <p>© <span id="current-year">2026</span> Viacheslav Stupak. All Rights Reserved.</p>
         </footer>
 
     </main>
@@ -591,6 +591,9 @@
             });
         }, observerOptions);
         document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+
+        // Automatically update the footer year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
