@@ -608,9 +608,33 @@
                 }
             });
         }, observerOptions);
-        document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(element => observer.observe(element));
 
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        window.addEventListener('beforeunload', () => {
+            sessionStorage.setItem('homeScrollPosition', window.scrollY);
+        });
+
+        window.addEventListener('load', () => {
+            const savedScrollPosition = sessionStorage.getItem('homeScrollPosition');
+            if (savedScrollPosition) {
+                const targetScroll = parseInt(savedScrollPosition, 10);
+                revealElements.forEach(element => {
+                    if (element.offsetTop <= targetScroll + window.innerHeight) {
+                        element.classList.add('active');
+                        observer.unobserve(element);
+                    }
+                });
+                window.scrollTo({
+                    top: targetScroll,
+                    behavior: 'auto'
+                });
+                sessionStorage.removeItem('homeScrollPosition');
+            }
+        });
     </script>
 </body>
 </html>
