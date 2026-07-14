@@ -41,7 +41,6 @@
         .container {
             max-width: 760px;
             margin: 0 auto;
-            /* Updated to respect iPhone safe areas in landscape */
             padding: 0 calc(24px + env(safe-area-inset-right)) 4vh calc(24px + env(safe-area-inset-left));
         }
 
@@ -52,7 +51,6 @@
             flex-direction: column;
             justify-content: center;
             margin-bottom: 2rem;
-            /* Added top and bottom padding to prevent content from cutting off when compressed vertically */
             padding-top: 40px;
             padding-bottom: 40px;
         }
@@ -436,7 +434,6 @@
         }
 
         @media (max-width: 600px) {
-            /* Kept standard padding for smaller screens but ensure safe-area insets still apply */
             .container { padding: 0 calc(20px + env(safe-area-inset-right)) 4vh calc(20px + env(safe-area-inset-left)); }
             h1 { font-size: 2.2rem; }
             .intro { font-size: 1.2rem; }
