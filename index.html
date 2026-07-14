@@ -32,7 +32,6 @@
             padding: 0;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-
             
             background-image: 
             radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.55), transparent 70%),
@@ -41,7 +40,7 @@
         }
 
         .container {
-            max-width: 760px; /* Increased from 720px for perfect consistency with case studies */
+            max-width: 760px;
             margin: 0 auto;
             padding: 0 24px 4vh 24px;
         }
@@ -124,16 +123,16 @@
 
         .exp-header {
             display: flex;
-            align-items: center; /* Centers the icon and text vertically relative to each other */
+            align-items: center;
             gap: 0.85rem;
             margin-bottom: 1rem;
-}
+        }
 
         .expertise-icon {
             color: var(--text-meta);
-            flex-shrink: 0; /* Keeps the icon from shrinking if the text wraps */
-            margin-top: 0; /* Removed the top margin nudge */
-}
+            flex-shrink: 0;
+            margin-top: 0;
+        }
 
         .exp-item h3 {
             font-size: 1.2rem;
@@ -164,7 +163,7 @@
             padding: 0.4rem 1rem;
             border-radius: 100px;
             cursor: default;
-}
+        }
 
         .project-card {
             position: relative;
@@ -205,10 +204,10 @@
         .project-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start; /* Aligns the tag to the top/first line of the title if it wraps */
-            gap: 1rem; /* Creates an absolute minimum safe distance between title and tag */
+            align-items: flex-start;
+            gap: 1rem;
             margin-bottom: 1rem;
-}
+        }
 
         .project-card h3 {
             font-size: 1.4rem;
@@ -226,9 +225,9 @@
             border-radius: 100px;
             font-weight: 400;
             letter-spacing: 0.02em;
-            flex-shrink: 0; /* Crucial: Prevents the tag from shrinking or collapsing when text gets long */
-            margin-top: 0.3rem; /* Nudges the pill down slightly to align beautifully with the cap-height of the text */
-}
+            flex-shrink: 0;
+            margin-top: 0.3rem;
+        }
 
         .project-card p {
             font-size: 1rem;
@@ -318,6 +317,17 @@
             position: relative;
             padding-bottom: 4px;
             transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .footer-link svg {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .footer-link:hover svg {
+            transform: translate(2px, -2px);
         }
 
         .footer-link::after {
@@ -548,9 +558,18 @@
             </div>
 
             <div class="footer-links">
-                <a href="https://www.linkedin.com/in/v-stupak/" target="_blank" class="footer-link">LinkedIn</a>
-                <a href="assets/cv_portfolio/portfolio_stupak.pdf" target="_blank" class="footer-link">Portfolio (PDF)</a>
-                <a href="assets/cv_portfolio/cv_stupak.pdf" target="_blank" class="footer-link">CV (PDF)</a>
+                <a href="https://www.linkedin.com/in/v-stupak/" target="_blank" class="footer-link">
+                    LinkedIn 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+                <a href="assets/cv_portfolio/portfolio_stupak.pdf" target="_blank" class="footer-link">
+                    Portfolio (PDF) 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+                <a href="assets/cv_portfolio/cv_stupak.pdf" target="_blank" class="footer-link">
+                    CV (PDF) 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
             </div>
 
         </section>
