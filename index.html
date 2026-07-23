@@ -26,6 +26,10 @@
             --card-bg: rgba(255, 255, 255, 0.01);
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg);
@@ -84,6 +88,58 @@
         .intro strong {
             font-weight: 400;
             color: var(--text-main);
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--text-main);
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            width: fit-content;
+        }
+
+        .btn-cta:hover {
+            border-color: var(--line-highlight);
+            background-color: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .hero-secondary-link {
+            color: var(--text-meta);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.3s ease;
+        }
+
+        .hero-secondary-link svg {
+            transition: transform 0.3s ease;
+        }
+
+        .hero-secondary-link:hover {
+            color: var(--text-main);
+        }
+
+        .hero-secondary-link:hover svg {
+            transform: translateY(2px);
         }
 
         h2 {
@@ -452,6 +508,9 @@
                 padding-top: 0; 
                 padding-bottom: 12svh; 
             }
+            .hero-actions {
+                gap: 1.25rem;
+            }
         }
     </style>
 </head>
@@ -463,8 +522,17 @@
             <h1>Viacheslav Stupak</h1>
             <span class="role">Senior UX Architect</span>
             <div class="intro">
-                <p>I take complex <strong>B2B, SaaS and Enterprise</strong> systems and make them usable.</p>
-                <p>12+ years helping products feel natural and effortless, where user needs and business goals meet.</p>
+                <p>I make complex <strong>B2B, SaaS and Enterprise systems</strong> usable and effortless. 12+ years of designing digital products where business goals and user needs actually align.</p>
+            </div>
+            <div class="hero-actions">
+                <a href="mailto:hello@stupakovic.com" class="btn-cta">Email Me</a>
+                <a href="#case-studies" class="hero-secondary-link">
+                    View Case Studies
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </a>
             </div>
         </header>
 
@@ -545,7 +613,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="case-studies">
             <h2 class="reveal">Selected Case Studies</h2>
 
             <a href="project-go.html" class="project-card reveal delay-1">
