@@ -122,7 +122,8 @@
             background: rgba(255, 255, 255, 0.03);
         }
 
-        .media-wrapper img {
+        .media-wrapper img,
+        .media-wrapper video {
             width: 100%;
             height: auto;
             display: block;
@@ -131,13 +132,16 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .img-dark-ui {
+        .img-dark-ui,
+        .video-dark-ui {
             opacity: 0.85;
             filter: grayscale(20%) contrast(1.05);
             mix-blend-mode: lighten;
+            transition: opacity 0.4s ease, filter 0.4s ease;
         }
 
-        .media-wrapper:hover .img-dark-ui {
+        .media-wrapper:hover .img-dark-ui,
+        .media-wrapper:hover .video-dark-ui {
             opacity: 1;
             filter: grayscale(0%) contrast(1);
             mix-blend-mode: normal;
@@ -221,7 +225,9 @@
         </header>
 
         <div class="media-wrapper reveal">
-            <img src="assets/images/project-go/go_home.png" class="img-dark-ui" alt="Landing page">
+            <video class="video-dark-ui" autoplay loop muted playsinline>
+                <source src="assets/videos/project-go/home.mp4" type="video/mp4">
+            </video>
             
             <div class="image-caption">Platform entry point combining visual storytelling with usability.</div>
         </div>
